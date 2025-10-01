@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Contacts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .contact {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideIn 0.5s forwards;
+        }
+        .contact:nth-child(1) { animation-delay: 0.1s; }
+        .contact:nth-child(2) { animation-delay: 0.2s; }
+        .contact:nth-child(3) { animation-delay: 0.3s; }
+        .contact:nth-child(4) { animation-delay: 0.4s; }
+        .contact:hover,
+        .contact:active {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .contact img {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #007bff;
+        }
+        .contact p {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .call-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1em;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .call-btn:hover,
+        .call-btn:active {
+            background-color: #218838;
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 400px) {
+            .container {
+                padding: 0 10px;
+            }
+            .contact img {
+                max-width: 150px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Tap to Call</h1>
+    <div class="container">
+        <div class="contact">
+            <img src="dad.png" alt="Dad">
+            <p>Dad</p>
+            <a href="tel:+919059896911" class="call-btn">Call Now</a>
+        </div>
+        <div class="contact">
+            <img src="Teja.png" alt="Teja">
+            <p>Teja</p>
+            <a href="tel:+919676705878" class="call-btn">Call Now</a>
+        </div>
+        <div class="contact">
+            <img src="Manu.png" alt="Manu">
+            <p>Manu</p>
+            <a href="tel:+919553058301" class="call-btn">Call Now</a>
+        </div>
+        <div class="contact">
+            <img src="Akka.png" alt="Akka">
+            <p>Akka</p>
+            <a href="tel:+919951507315" class="call-btn">Call Now</a>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.contact').forEach(contact => {
+            contact.addEventListener('click', function(e) {
+                if (e.target.classList.contains('call-btn')) return;
+                const link = this.querySelector('a');
+                if (link) {
+                    link.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
