@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Call Contacts</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="/icon.png">
     <style>
         * {
             margin: 0;
@@ -115,12 +117,8 @@
                 const contact = this.closest('.contact');
                 const tel = contact.getAttribute('data-tel');
                 if (tel) {
-                    // Attempt to open the dialer with the number
                     window.location.href = `tel:${tel}`;
-                    // Optional: Add a small delay to ensure the dialer opens
-                    setTimeout(() => {
-                        // Note: Fully automating the call (pressing "Call") is restricted by security policies
-                    }, 100);
+                    setTimeout(() => {}, 100); // Placeholder for any future enhancement
                 }
             });
         });
